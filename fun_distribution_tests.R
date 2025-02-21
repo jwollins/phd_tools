@@ -119,6 +119,10 @@ check_guassian <- function(data, columns_to_check) {
     ))
   }
   
+  # Assign the results to the global environment
+  assign("gaussian_results", results, envir = .GlobalEnv)
+  
+  # Optionally return the results for immediate viewing
   return(results)
 }
 
@@ -212,8 +216,8 @@ check_gamma_distribution <- function(data, columns_to_check) {
     }, error = function(e) NA)
     
     # Determine if the distribution is Gamma based on tests
-    is_gamma <- ifelse(ks_test > 0.05 & shapiro_test > 0.05, "Gamma", "Not Gamma")
-    
+    is_gamma <- ifelse(ks_test > 0.05 & shapiro_test > 0.05, yes = "Gamma", no = "Not Gamma")
+
     # Store results
     results <- rbind(results, data.frame(
       Column = colnames(data)[col],
