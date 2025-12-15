@@ -12,7 +12,7 @@
 ## 00 Setup ####
 
 #define vector of packages to load
-some_packages <- c('tidyverse', 'agricolae', 'agricolaeplotr', "desplot")
+some_packages <- c('tidyverse', 'agricolae', "desplot")
 
 #load all packages at once
 lapply(some_packages, library, character.only=TRUE)

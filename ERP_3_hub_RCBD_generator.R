@@ -78,11 +78,6 @@ fac3rcbd_out$bookRowCol <- fac3rcbd_out$bookRowCol %>%
 
 
 
-
-
-
-
-
 library(tidyverse)
 
 plot_w <- 3   # meters per plot (x direction, within block)
@@ -126,12 +121,13 @@ p_field <- ggplot(layout_m) +
     title = "ERP 3 Hub experiment RCBD layout",
     fill = "Crop (C) × Irrigation (I) × Tillage (T)"
   ) +
-  theme_minimal(base_size = 12) +
+  theme_bw(base_size = 12) +
   theme(legend.position = "bottom")
 
 p_field
 
-
+ggsave(filename = "~/jcollins@earthroverprogram.org - Google Drive/My Drive/3hub_experiment/ERP_3hub_RCBD_plot.png",
+       width = 10, height = 8)
 
 
 
