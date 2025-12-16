@@ -82,8 +82,8 @@ library(tidyverse)
 
 plot_w <- 3   # meters per plot (x direction, within block)
 plot_l <- 3   # meters per plot (y direction, block-to-block strip thickness)
-alley_x <- 1  # meters between plots within a block (set e.g. 0.5 if you have alleys)
-alley_y <- 6  # meters between blocks (set e.g. 1 if you have an alley between blocks)
+alley_x <- 0.5  # meters between plots within a block (set e.g. 0.5 if you have alleys)
+alley_y <- 0  # meters between blocks (set e.g. 1 if you have an alley between blocks)
 
 layout_m <- fac3rcbd_out$bookRowCol %>%
   # Define block origin and plot origin in meters
@@ -112,7 +112,7 @@ p_field <- ggplot(layout_m) +
   geom_text(aes(x = x_center, y = y_center, label = Label), size = 3) +
   coord_equal(expand = FALSE) +
   scale_x_continuous(
-    name = "Width (m)",
+    name = "Width (m)", 
     breaks = seq(0, ceiling(max(layout_m$xmax) / 3) * 3, by = 3)) +
   scale_y_continuous(
     name = "Length (m)",
@@ -126,7 +126,7 @@ p_field <- ggplot(layout_m) +
 
 p_field
 
-ggsave(filename = "~/jcollins@earthroverprogram.org - Google Drive/My Drive/3hub_experiment/ERP_3hub_RCBD_plot.png",
+ggsave(filename = "~/jcollins@earthroverprogram.org - Google Drive/My Drive/3hub_experiment/ERP_3hub_RCBD_plot3.png",
        width = 10, height = 8)
 
 
